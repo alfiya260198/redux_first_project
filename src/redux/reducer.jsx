@@ -5,13 +5,9 @@ const initialState = { counter: 0 };
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT:
-      return { ...state, counter: state.counter + 1 };
+      return { ...state, counter: state.counter + 5 };
     case DECREMENT:
-      return { ...state, counter: state.counter - 1 };
-    case INCREMENTBY2:
-      return { ...state, counter: state.counter + 2 };
-    case DECREMENTBY2:
-      return { ...state, counter: state.counter - 2 };
+      return { ...state, counter: state.counter - 5 };
     default:
       return state;
   }
