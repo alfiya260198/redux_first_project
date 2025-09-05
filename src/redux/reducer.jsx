@@ -1,16 +1,45 @@
-import { INCREMENT, DECREMENT, INCREMENTBY2, DECREMENTBY2 } from "./actionTypes";
-
-const initialState = { counter: 0 };
+const initialState = {
+  counter: 0,
+  showCounter: true
+};
 
 const counterReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return { ...state, counter: state.counter + 5 };
-    case DECREMENT:
-      return { ...state, counter: state.counter - 5 };
-    default:
-      return state;
+  if (action.type === "increment") {
+    return {
+      ...state,
+      counter: state.counter + 1
+    };
   }
+
+  if (action.type === "decrement") {
+    return {
+      ...state,
+      counter: state.counter - 1
+    };
+  }
+
+  if (action.type === "increase") {
+    return {
+      ...state,
+      counter: state.counter + action.amount
+    };
+  }
+
+  if (action.type === "incrementBy2") {
+    return {
+      ...state,
+      counter: state.counter + 2
+    };
+  }
+
+  if (action.type === "toggle") {
+    return {
+      ...state,
+      showCounter: !state.showCounter
+    };
+  }
+
+  return state;
 };
 
 export default counterReducer;
